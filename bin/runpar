@@ -1,0 +1,9 @@
+#!/bin/bash
+
+solver=$@
+
+solverName=$1
+
+nprocs=`ls -l | grep processor | wc -l`
+
+mpirun -n $nprocs $solver -parallel | tee log.$solverName
